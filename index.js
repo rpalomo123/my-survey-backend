@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors({
-  origin: 'https://legendary-liger-663ba1.netlify.app'  // ✅ your frontend domain
+  origin: 'https://legendary-liger-663ba1.netlify.app'
 }));
 app.use(express.json());
 
