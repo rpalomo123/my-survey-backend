@@ -50,6 +50,15 @@ router.get('/csat/:surveyId', async (req, res) => {
     perQuestionAverage
   });
 });
+// ✅ New route to fetch all raw responses with answers and comments
+router.get('/raw/:surveyId', async (req, res) => {
+  try {
+    const responses = await Response.find({ surveyId: req.params.surveyId });
+    res.json(responses);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch raw responses' });
+  }
+});
 
 
 module.exports = router;
