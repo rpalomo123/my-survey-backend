@@ -8,4 +8,3 @@ const responseSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Response', responseSchema);
-
