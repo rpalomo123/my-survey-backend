@@ -25,5 +25,14 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
+router.delete('/:id', async (req, res) => {
+  try {
+    await Survey.findByIdAndDelete(req.params.id);
+    await Response.deleteMany({ surveyId: req.params.id });
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to delete survey' });
+  }
+});
 
 module.exports = router;
